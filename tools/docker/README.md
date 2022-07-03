@@ -55,6 +55,21 @@ docker run --runtime=nvidia -p 8888:8888 -d recommenders:gpu
 DOCKER_BUILDKIT=1 docker build -t recommenders:full --build-arg ENV=full --build-arg VIRTUAL_ENV=conda .
 docker run --runtime=nvidia -p 8888:8888 -d recommenders:full
 ```
+<font color='green'> 
+
+**Note**  
+
+if you want to run the notebooks in the `examples` folder, you need to map the volume to the container. it can be done as follows:   
+
+`cd` into the recommender folder and then type:
+```
+docker run --runtime=nvidia -p 8888:8888 -d -v $(pwd):/root/recommenders recommenders:full
+``` 
+
+Note, however, that it will not run the python files that are mapped into the container. the container has its own installation of recommenders that resides in `conda/lib/python3.7/site-packages/recommenders` 
+</font>
+<font color='red'> 
+</font>
 
 </details>
 
